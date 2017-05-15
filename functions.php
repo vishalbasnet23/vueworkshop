@@ -8,5 +8,6 @@ function twentyseventeen_parent_theme_enqueue_styles() {
         get_stylesheet_directory_uri() . '/style.css',
         array( 'twentyseventeen-style' )
     );
+    wp_enqueue_script( 'vue-search-scipt', get_stylesheet_directory_uri() . '/vuesearch/dist/build.js', array('jquery'), '1.0.0', true);
 
 }
