@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-    <search-bar></search-bar>
-    <search-results></search-results>
+    <search-bar @changedParam="getSearchParam"></search-bar>
+    <search-results :searchResults="searchResults" v-if="searchResults"></search-results>
   </div>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar.vue';
-import SearchResults from './components/SearchResults.vue';
+import SearchResults from './components/SearchResults.vue'
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      searchResults: false
     }
   },
   components: {
     'search-bar' : SearchBar,
     'search-results': SearchResults
+  },
+  methods: {
+    getSearchParam: function(event){
+      this.searchResults = event;
+    }
   }
 }
 </script>
