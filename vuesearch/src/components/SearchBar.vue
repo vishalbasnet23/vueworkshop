@@ -14,7 +14,7 @@ export default {
   }),
   methods: {
     prepareParam: function() {
-      HTTP.get(`posts`)
+      HTTP.get(`posts?search="${this.searchParam}"`)
       .then(response =>{
         this.posts = response.data;
         this.$emit('changedParam', this.posts)
